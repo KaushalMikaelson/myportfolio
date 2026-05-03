@@ -45,7 +45,7 @@ function RotatableProjectCard({ project }: { project: Project }) {
   const rotateY = useTransform(mouseX, (val) => val);
 
   return (
-    <div className="h-[320px] w-[240px]" style={{ perspective: 1200 }}>
+    <div className="h-[520px] w-[300px]" style={{ perspective: 1200 }}>
       <motion.div
         className="w-full h-full"
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
@@ -88,16 +88,11 @@ function RotatableProjectCard({ project }: { project: Project }) {
               <h3 className="text-lg font-bold mb-1 text-white group-hover:text-blue-300 transition-colors duration-300">{project.title}</h3>
               <p className="text-muted-foreground text-xs mb-3 flex-grow leading-relaxed">{project.shortDesc}</p>
               <div className="flex flex-wrap gap-1 mt-auto">
-                {project.techStack.slice(0, 3).map((tech: string) => (
+                {project.techStack.map((tech: string) => (
                   <Badge key={tech} variant="secondary" className="bg-white/5 text-gray-300 border border-white/5 px-2 py-0.5 text-[10px]">
                     {tech}
                   </Badge>
                 ))}
-                {project.techStack.length > 3 && (
-                  <Badge variant="secondary" className="bg-white/5 text-gray-300 border border-white/5 px-2 py-0.5 text-[10px]">
-                    +{project.techStack.length - 3}
-                  </Badge>
-                )}
               </div>
             </div>
           </div>
@@ -159,7 +154,7 @@ const PROJECTS: Project[] = [
     title: "Nyaay",
     shortDesc: "AI-powered legal assistant with an advanced RAG system",
     fullDesc: "A comprehensive AI legal platform featuring a sophisticated RAG pipeline (BM25 + semantic + RRF) for accurate legal document retrieval. Includes a robust OCR pipeline and high-performance backend.",
-    techStack: ["Next.js", "Python", "FastAPI", "Redis", "Prisma", "JWT"],
+    techStack: ["Next.js", "React", "Node.js", "Express", "PostgreSQL", "Prisma", "Redis", "Groq", "Docker", "Razorpay"],
     features: ["Hybrid Search RAG", "Redis Caching", "OCR Pipeline", "Role-based Auth"],
     architecture: "Microservices architecture splitting Next.js frontend, Node.js API gateway, and Python AI microservices. Utilizes Redis for high-speed caching and PostgreSQL for persistent storage.",
     github: "https://github.com/KaushalMikaelson/Nyaya",
@@ -173,7 +168,7 @@ const PROJECTS: Project[] = [
     title: "HireNova",
     shortDesc: "AI career platform for resume analysis and roadmaps",
     fullDesc: "An intelligent platform that analyzes resumes using LLMs and generates personalized career roadmaps.",
-    techStack: ["Next.js", "Inngest", "OpenAI", "PostgreSQL"],
+    techStack: ["Next.js 14", "Prisma ORM", "Neon DB", "Inngest", "Tailwind CSS", "Shadcn UI", "Gemini AI"],
     features: ["Resume Analysis", "Async Workflows", "Career Roadmap Generation"],
     architecture: "Event-driven architecture using Inngest for async workflows.",
     github: "https://github.com/KaushalMikaelson/hirenova",
@@ -216,7 +211,7 @@ export default function ProjectsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const N = PROJECTS.length;
   const angleStep = 360 / N;
-  const radius = 420;
+  const radius = 480;
 
   const prev = () => setActiveIndex((i) => (i - 1 + N) % N);
   const next = () => setActiveIndex((i) => (i + 1) % N);
@@ -243,7 +238,7 @@ export default function ProjectsSection() {
         </motion.div>
 
         {/* 3D Carousel */}
-        <div className="relative" style={{ height: "360px", overflow: "hidden" }}>
+        <div className="relative" style={{ height: "650px" }}>
           {/* Left Nav */}
           <button
             onClick={prev}
@@ -265,11 +260,11 @@ export default function ProjectsSection() {
                   key={project.id}
                   className="absolute"
                   style={{
-                    top: "20px",
+                    top: "140px",
                     left: "50%",
-                    marginLeft: "-120px",
-                    width: "240px",
-                    height: "320px",
+                    marginLeft: "-150px",
+                    width: "300px",
+                    height: "520px",
                     transform: `rotateY(${i * angleStep}deg) translateZ(${radius}px)`,
                   }}
                 >

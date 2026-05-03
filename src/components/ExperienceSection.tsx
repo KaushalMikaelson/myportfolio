@@ -8,7 +8,7 @@ export default function ExperienceSection() {
     {
       id: 1,
       title: "Bachelor of Technology, CSE",
-      subtitle: "Bennett University | GPA: 9.0",
+      subtitle: "Bennett University | GPA: 9.0 | CGPA: 8.85",
       date: "2023 - 2027",
       icon: <GraduationCap className="w-6 h-6 text-emerald-400" />,
       description: "Pursuing Computer Science and Engineering with a strong focus on Software Engineering, Data Structures, and Artificial Intelligence.",
@@ -17,6 +17,26 @@ export default function ExperienceSection() {
     },
     {
       id: 2,
+      title: "Class XII — CBSE",
+      subtitle: "Delhi Public School | Marks: 81%",
+      date: "2021 - 2022",
+      icon: <GraduationCap className="w-6 h-6 text-sky-400" />,
+      description: "Completed senior secondary education with CBSE curriculum, with strong performance in Physics, Chemistry, Mathematics, and Computer Science.",
+      color: "border-sky-400/50",
+      gradient: "from-sky-500/10 to-blue-500/10"
+    },
+    {
+      id: 3,
+      title: "Class X — CBSE",
+      subtitle: "RamaKrishnaMission Vidyapith, Deoghar | Marks: 95%",
+      date: "2019 - 2020",
+      icon: <GraduationCap className="w-6 h-6 text-violet-400" />,
+      description: "Completed secondary education at a prestigious residential school known for academic excellence and holistic character development.",
+      color: "border-violet-400/50",
+      gradient: "from-violet-500/10 to-purple-500/10"
+    },
+    {
+      id: 4,
       title: "Smart India Hackathon (SIH)",
       subtitle: "National Finalist - Rank 61 / 500+",
       date: "2023",
@@ -26,7 +46,7 @@ export default function ExperienceSection() {
       gradient: "from-yellow-500/10 to-orange-500/10"
     },
     {
-      id: 3,
+      id: 5,
       title: "Competitive Programming",
       subtitle: "LeetCode Data Structures & Algorithms",
       date: "Ongoing",
@@ -36,7 +56,7 @@ export default function ExperienceSection() {
       gradient: "from-blue-500/10 to-cyan-500/10"
     },
     {
-      id: 4,
+      id: 6,
       title: "House Captain & Leadership",
       subtitle: "RamaKrishnaMission Vidyapith & DPS",
       date: "2019 - 2022",
@@ -114,7 +134,7 @@ export default function ExperienceSection() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-colors">
                         {item.title}
                       </h3>
-                      <h4 className={`text-sm font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${item.gradient.replace('to-', 'via-').replace('/10', '/80')}`}>
+                      <h4 className="text-sm font-semibold mb-4 text-white/60">
                         {item.subtitle}
                       </h4>
                       <p className="text-gray-400 leading-relaxed text-base">
