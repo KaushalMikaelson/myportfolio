@@ -51,7 +51,7 @@ function RotatableProjectCard({ project, index }: { project: Project, index: num
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true }}
       transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
       className="h-[550px] w-full col-span-1"
       style={{ perspective: 2000 }}
@@ -240,7 +240,7 @@ export default function ProjectsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >

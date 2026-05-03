@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Terminal, Network, Mail, Send, Copy, CheckCircle2 } from "lucide-react";
 import { useState, MouseEvent } from "react";
 import { Badge } from "@/components/ui/badge";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 function SpotlightCard({ children, className = "" }: { children: React.ReactNode, className?: string }) {
   const mouseX = useMotionValue(0);
@@ -62,7 +64,7 @@ export default function ContactSection() {
   const contactMethods = [
     {
       id: "email",
-      icon: <Mail className="w-6 h-6 text-blue-400" />,
+      icon: <SiGmail className="w-6 h-6 text-red-500" />,
       title: "Email",
       value: "kaushall.6621@gmail.com",
       link: "mailto:kaushall.6621@gmail.com",
@@ -71,7 +73,7 @@ export default function ContactSection() {
     },
     {
       id: "linkedin",
-      icon: <Network className="w-6 h-6 text-purple-400" />,
+      icon: <FaLinkedin className="w-6 h-6 text-[#0A66C2]" />,
       title: "LinkedIn",
       value: "https://www.linkedin.com/in/kaushal-kumar-370293281",
       link: "https://www.linkedin.com/in/kaushal-kumar-370293281",
@@ -80,7 +82,7 @@ export default function ContactSection() {
     },
     {
       id: "github",
-      icon: <Terminal className="w-6 h-6 text-white" />,
+      icon: <FaGithub className="w-6 h-6 text-white" />,
       title: "GitHub",
       value: "https://github.com/KaushalMikaelson",
       link: "https://github.com/KaushalMikaelson",
