@@ -4,7 +4,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Terminal, Network, Mail, Send, Copy, CheckCircle2, XCircle } from "lucide-react";
+import { Send, Copy, CheckCircle2, XCircle } from "lucide-react";
 import { useState, MouseEvent, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { FaGithub, FaLinkedin } from "react-icons/fa";

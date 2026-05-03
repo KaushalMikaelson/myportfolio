@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Download, FileText } from "lucide-react";
+import { ChevronRight, FileText } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail, SiNextdotjs, SiReact, SiTailwindcss, SiPrisma, SiRedis } from "react-icons/si";
 import { useEffect, useState } from "react";

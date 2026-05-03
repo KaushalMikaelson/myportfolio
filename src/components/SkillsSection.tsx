@@ -51,8 +51,6 @@ const categories = ["All", "Languages", "Frontend", "Backend", "AI/ML", "DevOps"
 
 function SkillBadge({ skill, index }: { skill: Skill; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
   const rotateX = useSpring(useMotionValue(0), { stiffness: 150, damping: 20 });
   const rotateY = useSpring(useMotionValue(0), { stiffness: 150, damping: 20 });
 
