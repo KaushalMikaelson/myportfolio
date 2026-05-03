@@ -97,13 +97,6 @@ function RotatableProjectCard({ project, index }: { project: Project, index: num
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               
-              {project.featured && (
-                <div className="absolute top-6 left-6 z-20">
-                  <Badge className="bg-blue-500/20 text-blue-300 backdrop-blur-md border border-blue-500/30">
-                    Flagship Project
-                  </Badge>
-                </div>
-              )}
               {/* 360 Spin indicator */}
               <div className="absolute bottom-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
@@ -208,7 +201,7 @@ export default function ProjectsSection() {
       github: "https://github.com/KaushalMikaelson/Nyaya",
       demo: "https://nyaya-km.vercel.app",
       image: "/projects/nyaay.png",
-      featured: true,
+      featured: false,
       accent: "from-blue-500/20 via-indigo-500/20 to-purple-500/20",
     },
     {

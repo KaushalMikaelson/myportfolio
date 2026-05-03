@@ -56,10 +56,13 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I am a passionate <span className="text-white font-medium">Full-Stack & AI Engineer</span> dedicated to building intelligent, scalable, and beautifully designed web applications. My expertise lies at the intersection of modern web development and artificial intelligence.
+              I am a <span className="text-white font-medium">Full-Stack Software Engineer</span> specializing in AI-integrated web applications using Next.js, React, and Node.js with MongoDB and Prisma ORM-based architectures. Currently pursuing my B.Tech in CSE at Bennett University (9.0 GPA).
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              I am highly experienced in building ML-powered features with Python, Hugging Face, and Gemini AI. My expertise extends to deploying production-grade REST APIs with JWT authentication, and designing sophisticated <span className="text-blue-400">RAG systems</span>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I specialize in designing <span className="text-blue-400">RAG (Retrieval-Augmented Generation)</span> systems, integrating LLMs into robust backend architectures, and crafting premium, responsive frontend experiences. I believe in writing clean code and creating systems that are both performant and maintainable.
+              Beyond development, I have incredibly strong DSA fundamentals—having solved <span className="text-purple-400">450+ LeetCode problems</span> and ranked 61 out of 500+ teams in the Smart India Hackathon. I also actively demonstrate leadership as a House Captain coordinating cross-functional teams.
             </p>
           </motion.div>
 

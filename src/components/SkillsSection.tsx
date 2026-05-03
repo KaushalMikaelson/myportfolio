@@ -24,9 +24,8 @@ function SkillCard({ category, index }: { category: { title: string; description
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className={`group relative h-full flex flex-col rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_30px_-15px_rgba(255,255,255,0.2)] ${
-        isLarge ? "md:col-span-2 lg:col-span-2" : "col-span-1"
-      }`}
+      className={`group relative h-full flex flex-col rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_30px_-15px_rgba(255,255,255,0.2)] ${isLarge ? "md:col-span-2 lg:col-span-2" : "col-span-1"
+        }`}
       onMouseMove={handleMouseMove}
     >
       <motion.div
@@ -41,7 +40,7 @@ function SkillCard({ category, index }: { category: { title: string; description
           `,
         }}
       />
-      
+
       <div className="relative z-20 p-8 h-full flex flex-col">
         <div className="flex items-center gap-4 mb-6">
           <div className={`p-4 rounded-2xl bg-gradient-to-br ${category.gradient} border border-white/10 shadow-inner`}>
@@ -49,11 +48,11 @@ function SkillCard({ category, index }: { category: { title: string; description
           </div>
           <h3 className="text-2xl font-bold text-white">{category.title}</h3>
         </div>
-        
+
         <p className="text-muted-foreground mb-8 text-base">
           {category.description}
         </p>
-        
+
         <div className="flex flex-wrap gap-2 mt-auto">
           {category.skills.map((skill: string) => (
             <span
@@ -65,7 +64,7 @@ function SkillCard({ category, index }: { category: { title: string; description
           ))}
         </div>
       </div>
-      
+
       {/* Background decoration */}
       <div className={`absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-br ${category.gradient} opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-500 pointer-events-none`}></div>
     </motion.div>
