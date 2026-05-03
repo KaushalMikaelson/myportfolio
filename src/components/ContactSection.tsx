@@ -4,8 +4,8 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Terminal, Network, Mail, Send, Copy, CheckCircle2 } from "lucide-react";
-import { useState, MouseEvent } from "react";
+import { Terminal, Network, Mail, Send, Copy, CheckCircle2, XCircle } from "lucide-react";
+import { useState, MouseEvent, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
@@ -45,14 +45,40 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    setToast(null);
+
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setToast({ type: "success", message: `Message sent! I'll get back to you soon, ${name}.` });
+        form.reset();
+      } else {
+        setToast({ type: "error", message: data.error || "Something went wrong. Please try again." });
+      }
+    } catch {
+      setToast({ type: "error", message: "Network error. Please check your connection and try again." });
+    } finally {
       setIsSubmitting(false);
-      alert("Message sent successfully!");
-    }, 1500);
+      setTimeout(() => setToast(null), 6000);
+    }
   };
 
   const copyToClipboard = (text: string, id: string) => {
@@ -155,7 +181,7 @@ export default function ContactSection() {
             className="md:col-span-3"
           >
             <SpotlightCard className="p-8 md:p-10 h-full">
-              <form onSubmit={handleSubmit} className="relative z-20 space-y-6 h-full flex flex-col">
+              <form ref={formRef} onSubmit={handleSubmit} className="relative z-20 space-y-6 h-full flex flex-col">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">Your Name</label>
@@ -188,6 +214,27 @@ export default function ContactSection() {
                   />
                 </div>
 
+                {/* Toast notification */}
+                {toast && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`flex items-start gap-3 p-4 rounded-xl border text-sm ${
+                      toast.type === "success"
+                        ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
+                        : "bg-red-500/10 border-red-500/30 text-red-300"
+                    }`}
+                  >
+                    {toast.type === "success" ? (
+                      <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0 text-emerald-400" />
+                    ) : (
+                      <XCircle className="w-5 h-5 mt-0.5 shrink-0 text-red-400" />
+                    )}
+                    <span>{toast.message}</span>
+                  </motion.div>
+                )}
+
                 <Button
                   type="submit"
                   disabled={isSubmitting}
@@ -196,7 +243,7 @@ export default function ContactSection() {
                   {isSubmitting ? (
                     <span className="flex items-center">
                       <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin mr-3"></span>
-                      Initiating Launch...
+                      Sending...
                     </span>
                   ) : (
                     <span className="flex items-center">
