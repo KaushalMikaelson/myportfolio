@@ -131,10 +131,10 @@ export default function ContactSection() {
             Get In Touch
           </Badge>
           <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-            Let's Collaborate
+            Let&apos;s Collaborate
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Open to new opportunities and exciting projects. Let's build something extraordinary together.
+            Open to new opportunities and exciting projects. Let&apos;s build something extraordinary together.
           </p>
         </motion.div>
 
